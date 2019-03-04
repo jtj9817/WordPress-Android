@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wordpress.android.R;
 import org.wordpress.android.datasets.ReaderTagTable;
+import org.wordpress.android.e2e.pages.SitePickerPage;
 import org.wordpress.android.models.ReaderTag;
 import org.wordpress.android.models.ReaderTagList;
 import org.wordpress.android.support.BaseTest;
@@ -91,6 +92,12 @@ public class WPScreenshotTest extends BaseTest {
     private void editBlogPost() {
         // Choose the "sites" tab in the nav
         clickOn(R.id.nav_sites);
+
+        // Choose "Switch Site"
+        sleep(1000);
+        clickOn(R.id.switch_site);
+
+        (new SitePickerPage()).chooseSiteWithURL("infocusphotographers.com");
 
         waitForImagesOfTypeWithPlaceholder(R.id.my_site_blavatar, ImageType.BLAVATAR);
         Screengrab.screenshot("screenshot_3");

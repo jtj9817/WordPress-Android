@@ -61,7 +61,12 @@ public class WPSupportUtils {
 
     public static void clickOn(Integer elementID) {
         waitForElementToBeDisplayed(elementID);
-        onView(withId(elementID)).perform(click());
+        clickOn(onView(withId(elementID)));
+    }
+
+    public static void clickOn(ViewInteraction viewInteraction) {
+        waitForElementToBeDisplayed(viewInteraction);
+        viewInteraction.perform(click());
     }
 
     public static void clickOnChildAtIndex(int index, int parentElementID, int childElementID) {
