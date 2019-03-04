@@ -143,9 +143,6 @@ public class WPScreenshotTest extends BaseTest {
             clickOn(R.id.promo_dialog_button_positive);
         }
 
-        // Select "Days" from the spinner
-        selectItemAtIndexInSpinner(1, R.id.filter_spinner);
-
         // Wait for the stats to load
         waitForElementToNotBeDisplayed(R.id.stats_empty_module_placeholder);
 
