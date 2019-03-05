@@ -33,6 +33,13 @@ module Fastlane
         # Enjoy lunch while browsing the Play Store
         other_action.adb(command: "shell am broadcast -a com.android.systemui.demo -e command clock -e hhmm 1337",
                          serial: device_serial)
+
+        # Allow the use of private APIs
+        other_action.adb(command: "shell settings put global hidden_api_policy_pre_p_apps 1",
+                 serial: device_serial)
+
+        other_action.adb(command: "shell settings put global hidden_api_policy_p_apps 1",
+                 serial: device_serial)
       end
 
       def self.exit_demo_mode(device_serial)
